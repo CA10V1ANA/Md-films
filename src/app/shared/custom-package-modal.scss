@@ -1,0 +1,236 @@
+dialog {
+  overflow: hidden;
+  width: min(800px, calc(100% - 28px));
+  max-height: 90dvh;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--cream);
+  color: var(--brown);
+  box-shadow: 0 24px 90px #160c0750;
+}
+dialog::backdrop {
+  background: #1e120dc4;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(90dvh - 2px);
+}
+.modal-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 25px 30px 20px;
+  border-bottom: 1px solid var(--line);
+  gap: 20px;
+}
+h2 {
+  font-size: 2.2rem;
+  margin: 10px 0 0;
+}
+.close-button {
+  border: 0;
+  background: transparent;
+  min-width: 44px;
+  min-height: 44px;
+}
+.modal-body {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 24px 30px;
+  overscroll-behavior: contain;
+}
+#custom-intro {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 28px;
+  min-width: 0;
+}
+legend {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  padding: 0;
+  margin-bottom: 12px;
+}
+.stage-grid,
+.duration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.stage {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 12px;
+  cursor: pointer;
+}
+.stage span {
+  color: var(--brown);
+}
+input[type='checkbox'] {
+  accent-color: var(--brown);
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+.chosen {
+  border-color: var(--gold) !important;
+  background: #dfc8a32b;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.hours-row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+.hours-row > label:first-child {
+  display: grid;
+  gap: 6px;
+}
+.hours-row input[type='number'] {
+  max-width: 150px;
+}
+.hint,
+.group-description {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+p.hint {
+  margin: 10px 0 0;
+}
+.group-description {
+  margin-top: -5px;
+  margin-bottom: 13px;
+}
+.option-list {
+  display: grid;
+  gap: 10px;
+}
+.option {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 12px;
+}
+.option-name {
+  min-height: 28px;
+}
+.option-name span {
+  color: var(--brown);
+}
+small {
+  display: block;
+  font-size: 0.69rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+  margin: 12px 0 0 27px;
+}
+.quantity input {
+  max-width: 95px;
+  flex-shrink: 0;
+}
+.quantity span {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+select,
+.duration-grid input,
+textarea {
+  margin-top: 7px;
+}
+.duration-grid {
+  margin-top: 16px;
+}
+.notes-label {
+  display: block;
+}
+.custom-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 20px 0 0;
+}
+.modal-error {
+  color: #9b3225;
+  font-size: 0.8rem;
+  margin: 14px 0 0;
+}
+.modal-footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 30px;
+  flex-wrap: wrap;
+}
+.modal-footer .button {
+  margin-left: auto;
+  border-radius: 7px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+.modal-footer > span {
+  width: 100%;
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-align: right;
+}
+.cancel-button {
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  padding: 12px 0;
+  font-size: 0.8rem;
+}
+@media (max-width: 600px) {
+  .modal-header {
+    padding: 18px;
+    gap: 10px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .modal-body {
+    padding: 20px 18px;
+  }
+  .modal-footer {
+    padding: 14px 18px;
+    gap: 8px;
+  }
+  .modal-footer .button {
+    font-size: 0.73rem;
+    padding: 13px;
+  }
+  .stage-grid,
+  .duration-grid {
+    grid-template-columns: 1fr;
+  }
+  .stage {
+    font-size: 0.8rem;
+  }
+}

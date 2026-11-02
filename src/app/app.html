@@ -1,0 +1,60 @@
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header [class.over-photo]="homeHeader()">
+  <div class="container header-inner">
+    <a class="brand" routerLink="/" aria-label="Madu Films — início"
+      ><img src="/images/logo-emblema.png" alt="" /><span>MADU FILMS</span></a
+    ><button
+      class="menu-toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="main-menu"
+      (click)="menuOpen.set(!menuOpen())"
+      [attr.aria-label]="menuOpen() ? 'Fechar menu' : 'Abrir menu'"
+    >
+      <i [class]="menuOpen() ? 'bi bi-x-lg' : 'bi bi-list'" aria-hidden="true"></i>
+    </button>
+    <nav
+      id="main-menu"
+      aria-label="Navegação principal"
+      [class.open]="menuOpen()"
+      (keydown.escape)="closeMenu()"
+    >
+      @for (link of links; track link.url) {
+        <a
+          [routerLink]="link.url"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.url === '/' }"
+          ariaCurrentWhenActive="page"
+          >{{ link.label }}</a
+        >
+      }
+    </nav>
+    <a
+      class="header-cta button gold"
+      [href]="contactUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Vamos conversar no WhatsApp"
+      >Vamos conversar <i class="bi bi-arrow-right" aria-hidden="true"></i
+    ></a>
+  </div>
+</header>
+<main id="conteudo" tabindex="-1"><router-outlet /></main>
+<footer>
+  <div class="container footer-main">
+    <a class="brand" routerLink="/"
+      ><img src="/images/logo-emblema.png" alt="Logo Madu Films" /><span>MADU FILMS</span></a
+    >
+    <p>Histórias reais.<br />Sentimentos em movimento.</p>
+    <div class="footer-links">
+      <a [href]="config.instagram" target="_blank" rel="noopener noreferrer"
+        ><i class="bi bi-instagram" aria-hidden="true"></i> Instagram</a
+      ><a [href]="contactUrl" target="_blank" rel="noopener noreferrer"
+        ><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</a
+      >
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Madu Films</span><span>Fotografia · Filmes · Memórias</span>
+  </div>
+</footer>

@@ -1,0 +1,186 @@
+<dialog
+  #modal
+  aria-labelledby="custom-title"
+  aria-describedby="custom-intro"
+  (close)="restoreScroll()"
+>
+  <form (ngSubmit)="save()" (input)="error = ''" (change)="error = ''" novalidate>
+    <header class="modal-header">
+      <div>
+        <p class="eyebrow">DO SEU JEITO</p>
+        <h2 id="custom-title">Vamos montar seu pacote?</h2>
+      </div>
+      <button
+        type="button"
+        class="close-button"
+        aria-label="Fechar personalização"
+        (click)="close()"
+      >
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </header>
+    <div class="modal-body">
+      <p id="custom-intro">
+        Escolha o que faz sentido para sua história. Você revisa tudo no orçamento e conversa com a
+        Madu pelo WhatsApp.
+      </p>
+      <fieldset>
+        <legend>Quais momentos vamos registrar?</legend>
+        <div class="stage-grid">
+          @for (stage of stages; track stage.id) {
+            <label class="stage" [class.chosen]="selection.stages.includes(stage.id)"
+              ><input
+                type="checkbox"
+                [checked]="selection.stages.includes(stage.id)"
+                (change)="toggleStage(stage.id, $any($event.target).checked)"
+              /><span>{{ stage.label }}</span></label
+            >
+          }
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Tempo de cobertura</legend>
+        <div class="hours-row">
+          <label for="custom-hours"
+            >Horas desejadas<input
+              id="custom-hours"
+              name="hours"
+              type="number"
+              inputmode="decimal"
+              min="0.5"
+              step="0.5"
+              [disabled]="selection.hoursUnknown"
+              [(ngModel)]="selection.hours" /></label
+          ><label class="check"
+            ><input name="hoursUnknown" type="checkbox" [(ngModel)]="selection.hoursUnknown" />Ainda
+            não sei</label
+          >
+        </div>
+        <p class="hint">Ex.: 1, 1,5 ou 2 horas. A duração será combinada com a Madu.</p>
+      </fieldset>
+      @for (group of groups; track group.id) {
+        <fieldset>
+          <legend>{{ group.label }}</legend>
+          <p class="group-description">{{ group.description }}</p>
+          <div class="option-list">
+            @for (item of items; track item.id) {
+              @if (item.group === group.id) {
+                <div class="option" [class.chosen]="selection.items[item.id].enabled">
+                  <label class="check option-name"
+                    ><input
+                      type="checkbox"
+                      [name]="item.id + 'Enabled'"
+                      [(ngModel)]="selection.items[item.id].enabled"
+                    /><span
+                      >{{ item.label }}
+                      @if (item.detail) {
+                        <small>{{ item.detail }}</small>
+                      }
+                    </span></label
+                  >
+                  @if (selection.items[item.id].enabled && item.quantityLabel) {
+                    <label class="quantity"
+                      ><span>{{ item.quantityLabel }}</span
+                      ><input
+                        type="number"
+                        inputmode="numeric"
+                        [name]="item.id + 'Quantity'"
+                        [(ngModel)]="selection.items[item.id].quantity"
+                        min="1"
+                        step="1"
+                    /></label>
+                  }
+                </div>
+              }
+            }
+          </div>
+        </fieldset>
+      }
+      @if (selection.items['videos'].enabled || selection.items['reels'].enabled) {
+        <fieldset>
+          <legend>Como você imagina os vídeos?</legend>
+          @if (selection.items['videos'].enabled) {
+            <label for="custom-video-format"
+              >Formato dos vídeos completos<select
+                id="custom-video-format"
+                name="videoFormat"
+                [(ngModel)]="selection.videoFormat"
+              >
+                @for (format of formats; track format.id) {
+                  <option [value]="format.id">{{ format.label }}</option>
+                }
+              </select></label
+            >
+          }
+          @if (selection.items['reels'].enabled) {
+            <label for="custom-reels-format"
+              >Formato dos reels<select
+                id="custom-reels-format"
+                name="reelsFormat"
+                [(ngModel)]="selection.reelsFormat"
+              >
+                @for (format of formats; track format.id) {
+                  <option [value]="format.id">{{ format.label }}</option>
+                }
+              </select></label
+            >
+          }
+          <div class="duration-grid">
+            @if (selection.items['videos'].enabled) {
+              <label for="video-minutes"
+                >Minutos por vídeo completo <span class="hint">(opcional)</span
+                ><input
+                  id="video-minutes"
+                  name="videoMinutes"
+                  type="number"
+                  min="0.5"
+                  step="0.5"
+                  inputmode="decimal"
+                  [(ngModel)]="selection.videoMinutes"
+                  placeholder="A combinar"
+              /></label>
+            }
+            @if (selection.items['reels'].enabled) {
+              <label for="reels-seconds"
+                >Segundos por reels <span class="hint">(opcional)</span
+                ><input
+                  id="reels-seconds"
+                  name="reelsSeconds"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputmode="numeric"
+                  [(ngModel)]="selection.reelsSeconds"
+                  placeholder="A combinar"
+              /></label>
+            }
+          </div>
+        </fieldset>
+      }
+      <label for="custom-notes" class="notes-label"
+        >Mais alguma preferência? <span class="hint">(opcional)</span
+        ><textarea
+          id="custom-notes"
+          name="customNotes"
+          rows="3"
+          maxlength="500"
+          [(ngModel)]="selection.notes"
+          placeholder="Outro momento, uma entrega diferente, dúvidas sobre a equipe…"
+        ></textarea>
+      </label>
+      <p class="custom-disclaimer">
+        <i class="bi bi-info-circle" aria-hidden="true"></i>Esta é uma solicitação personalizada.
+        Valor, equipe, entregas e disponibilidade serão confirmados pela Madu.
+      </p>
+      @if (error) {
+        <p class="modal-error" role="alert" tabindex="-1">{{ error }}</p>
+      }
+    </div>
+    <footer class="modal-footer">
+      <button type="button" class="cancel-button" (click)="close()">Cancelar</button
+      ><button type="submit" class="button dark">
+        Revisar orçamento <i class="bi bi-arrow-right" aria-hidden="true"></i></button
+      ><span>Personalizado · valor sob consulta</span>
+    </footer>
+  </form>
+</dialog>

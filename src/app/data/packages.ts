@@ -1,0 +1,107 @@
+import { FilmPackage, PackageCategory } from '../models/content';
+// Fonte: PDF PACOTE CASAMENTO - Madu Reis, páginas 4–7. Confirmar valores e condições antes de publicar.
+export const packageCategories: { id: PackageCategory; label: string }[] = [
+  { id: 'ensaios', label: 'Ensaios pré-wedding' },
+  { id: 'civil', label: 'Casamento civil' },
+  { id: 'cerimonia', label: 'Cerimônia e making of' },
+  { id: 'casamento', label: 'Pacotes de casamento' },
+];
+export const packages: FilmPackage[] = [
+  {
+    id: 'ensaio-essencial',
+    name: 'Essencial',
+    category: 'ensaios',
+    price: 290,
+    duration: 'Até 2 horas',
+    image: '/images/casal-jardim.jpg',
+    includes: ['30 fotos tratadas em alta resolução'],
+  },
+  {
+    id: 'ensaio-especial',
+    name: 'Especial',
+    category: 'ensaios',
+    price: 390,
+    duration: 'Até 3 horas',
+    image: '/images/casal-abraco.jpg',
+    includes: ['50 fotos tratadas em alta resolução', '1 reels editado em alta resolução'],
+  },
+  {
+    id: 'ensaio-completo',
+    name: 'Completo',
+    category: 'ensaios',
+    price: 490,
+    duration: 'Até 4 horas',
+    image: '/images/casal-jardim.jpg',
+    includes: [
+      '70 fotos tratadas em alta resolução',
+      '2 reels editados em alta resolução (horizontal e vertical)',
+    ],
+  },
+  {
+    id: 'civil',
+    name: 'Fotos e vídeos • Civil',
+    category: 'civil',
+    price: 540,
+    duration: 'Até 1h30',
+    image: '/images/casal-abraco.jpg',
+    includes: ['No cartório ou local do casamento civil', '90 fotos tratadas', '1 reels editado'],
+  },
+  {
+    id: 'cerimonia-making',
+    name: 'Cerimônia e making of',
+    category: 'cerimonia',
+    price: 720,
+    image: '/images/casal-jardim.jpg',
+    includes: ['Registro da cerimônia e making of'],
+    note: 'Duração, equipe e entregas não especificadas no PDF. Confirme os detalhes com a Madu.',
+  },
+  {
+    id: 'cerimonia-recepcao',
+    name: 'Cerimônia + Recepção',
+    category: 'casamento',
+    price: 800,
+    duration: '5 horas de cobertura',
+    image: '/images/casal-jardim.jpg',
+    includes: [
+      '1 reels cinematográfico',
+      '1 vídeo completo',
+      '1 filmmaker e 1 fotógrafo',
+      'Mínimo de 100 fotos',
+    ],
+  },
+  {
+    id: 'making-cerimonia-recepcao',
+    name: 'Making of + Cerimônia + Recepção',
+    category: 'casamento',
+    price: 950,
+    duration: '8 horas de cobertura',
+    image: '/images/casal-abraco.jpg',
+    includes: [
+      '2 reels cinematográficos',
+      '1 vídeo completo',
+      '1 fotógrafo, 1 filmmaker e 1 storymaker',
+      'Mínimo de 100 fotos',
+    ],
+  },
+  {
+    id: 'casamento-completo',
+    name: 'Completo',
+    category: 'casamento',
+    price: 1150,
+    duration: 'Cobertura completa',
+    image: '/images/casal-jardim.jpg',
+    includes: [
+      'Pré-wedding + making of + cerimônia + recepção',
+      '2 fotógrafos, 1 storymaker e 1 filmmaker',
+      '2 reels estilo cinematográfico',
+      '1 vídeo completo + Wedding Messages',
+      'Mínimo de 200 fotos',
+    ],
+    note: 'O PDF não especifica a duração em horas.',
+  },
+];
+export const rehearsalExtras = [
+  { name: 'Foto extra', detail: 'R$ 8 por foto ou R$ 20 a cada 3 fotos extras' },
+  { name: 'Reels extra', detail: 'R$ 50 por vídeo adicional' },
+  { name: 'Hora extra', detail: 'R$ 80 por hora adicionada' },
+];

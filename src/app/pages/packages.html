@@ -1,0 +1,46 @@
+<app-page-hero
+  eyebrow="NOSSOS PACOTES"
+  heading="Escolha como guardar esse dia"
+  description="Filmes e fotos que preservam cada detalhe, do que é grandioso ao que passa despercebido."
+/>
+<section class="packages-section container">
+  <div class="filters package-filters" role="group" aria-label="Categoria de pacotes">
+    @for (category of categories; track category.id) {
+      <button
+        type="button"
+        [class.selected]="selected() === category.id"
+        [attr.aria-pressed]="selected() === category.id"
+        (click)="selected.set(category.id)"
+      >
+        {{ category.label }}
+      </button>
+    }
+  </div>
+  <div class="package-grid" aria-live="polite">
+    @for (item of filtered(); track item.id) {
+      <app-package-card [item]="item" />
+    }
+  </div>
+  @if (selected() === 'ensaios') {
+    <section class="extras">
+      <p class="eyebrow">PARA COMPLETAR SEU ENSAIO</p>
+      <h2>Um pouco mais da sua história.</h2>
+      <div class="extra-grid">
+        @for (extra of extras; track extra.name) {
+          <div>
+            <h3>{{ extra.name }}</h3>
+            <p>{{ extra.detail }}</p>
+          </div>
+        }
+      </div>
+    </section>
+  }
+  <div class="package-note">
+    <p>Valores e condições do material enviado. Provisórios e sujeitos à confirmação da Madu.</p>
+    <p class="image-note">Fotos de referência para a composição dos cartões.</p>
+    <button type="button" class="text-link" (click)="customModal.open()">
+      Preciso de algo personalizado <i class="bi bi-arrow-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</section>
+<app-custom-package-modal #customModal (saved)="reviewCustomPackage()" />

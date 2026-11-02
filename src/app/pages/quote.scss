@@ -1,0 +1,300 @@
+.quote-layout {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  max-width: 1600px;
+  margin: auto;
+}
+.quote-aside {
+  position: relative;
+  isolation: isolate;
+  min-height: 970px;
+  color: var(--cream);
+}
+.quote-aside > img,
+.aside-shade {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.quote-aside > img {
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+.aside-shade {
+  background: linear-gradient(0deg, #1d120ee6, transparent 80%);
+}
+.aside-copy {
+  position: absolute;
+  bottom: 50px;
+  left: 11%;
+  right: 8%;
+}
+.aside-copy .eyebrow {
+  line-height: 2;
+}
+.small-line {
+  display: block;
+  height: 1px;
+  width: 45px;
+  background: var(--gold);
+  margin: 27px 0;
+}
+.aside-copy h2 {
+  font-size: clamp(2rem, 3.1vw, 3.7rem);
+  line-height: 1.12;
+  margin: 0;
+}
+.aside-caption {
+  font-size: 0.6rem;
+  color: #e3d1bd;
+  margin-top: 25px;
+}
+.quote-content {
+  padding: 50px clamp(25px, 4vw, 70px) 35px;
+}
+.quote-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.quote-eyebrow:before {
+  content: '';
+  width: 45px;
+  height: 1px;
+  background: var(--gold);
+}
+h1 {
+  font-size: clamp(2.9rem, 3.9vw, 4.3rem);
+  line-height: 1.05;
+  margin: 25px 0 15px;
+}
+.quote-intro {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0 0 30px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.full {
+  grid-column: 1/-1;
+}
+label {
+  font-size: 0.8rem;
+}
+label > span:not(.optional) {
+  color: #8b402a;
+}
+.optional {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.character-count {
+  align-self: flex-end;
+  font-size: 0.66rem;
+  color: var(--muted);
+}
+.selection {
+  margin: 25px 0 16px;
+  border: 1px solid #bea175;
+  border-radius: 8px;
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+.selection-icon {
+  background: var(--sand);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+}
+.selection h2 {
+  font-size: 1.5rem;
+  margin: 5px 0;
+  line-height: 1.15;
+}
+.selection span {
+  font-size: 0.7rem;
+}
+.selection p {
+  font-size: 0.75rem;
+  margin: 0;
+  color: var(--gold-dark);
+}
+.selection-actions {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  flex-shrink: 0;
+  font-size: 0.68rem;
+}
+.selection-actions a {
+  text-decoration: underline;
+}
+.selection-actions button,
+.project-reference button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  color: var(--muted);
+  text-decoration: underline;
+}
+.whatsapp-button {
+  width: 100%;
+  border-radius: 40px;
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+}
+.whatsapp-button > .bi-whatsapp {
+  font-size: 1.2rem;
+}
+.quote-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  color: var(--muted);
+  padding: 17px 5px;
+}
+.quote-disclaimer i {
+  font-size: 1.1rem;
+}
+.quote-disclaimer p {
+  font-size: 0.72rem;
+  line-height: 1.7;
+  margin: 0;
+}
+.back-packages {
+  display: flex;
+  gap: 13px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  font-size: 0.8rem;
+}
+.personalized {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.76rem;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+.personalized a {
+  margin-left: auto;
+  text-decoration: underline;
+  color: var(--gold-dark);
+}
+.project-reference {
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  padding-top: 12px;
+  font-size: 0.7rem;
+}
+.error {
+  font-size: 0.72rem;
+  color: #9b3225;
+}
+[aria-invalid='true'] {
+  border-color: #9b3225 !important;
+}
+@media (max-width: 950px) {
+  .quote-layout {
+    grid-template-columns: 30% 70%;
+  }
+  .quote-content {
+    padding: 35px 25px;
+  }
+  .selection-icon {
+    display: none;
+  }
+  .form-grid {
+    gap: 20px 15px;
+  }
+}
+@media (max-width: 850px) {
+  .quote-layout {
+    grid-template-columns: 1fr;
+  }
+  .quote-aside {
+    display: none;
+  }
+  .quote-content {
+    width: 100%;
+    max-width: 760px;
+    margin-inline: auto;
+    padding: 40px 6%;
+  }
+}
+@media (max-width: 650px) {
+  .quote-layout {
+    grid-template-columns: 1fr;
+  }
+  .quote-aside {
+    display: none;
+  }
+  .quote-content {
+    padding: 30px 6%;
+  }
+  .quote-intro {
+    font-size: 0.85rem;
+  }
+  h1 {
+    font-size: 3rem;
+    max-width: 340px;
+    margin-top: 20px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .selection {
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 17px 13px;
+  }
+  .selection-icon {
+    display: grid;
+    width: 40px;
+    height: 40px;
+  }
+  .selection h2 {
+    font-size: 1.3rem;
+  }
+  .selection-actions {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .whatsapp-button {
+    font-size: 0.78rem;
+    padding-inline: 10px;
+  }
+  .quote-disclaimer p {
+    font-size: 0.7rem;
+  }
+  .quote-disclaimer {
+    gap: 10px;
+  }
+  .personalized a {
+    margin-left: 0;
+  }
+}

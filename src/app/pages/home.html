@@ -1,0 +1,75 @@
+<section class="home-hero">
+  <img
+    class="hero-photo"
+    src="/images/casal-abraco.jpg"
+    alt="Casal abraçado, em uma foto fornecida para a composição do portfólio"
+    fetchpriority="high"
+  />
+  <div class="hero-shade"></div>
+  <div class="container hero-content">
+    <p class="eyebrow">FILMES QUE SENTEM</p>
+    <h1>Histórias que<br />merecem ser<br /><em>revividas.</em></h1>
+    <p class="hero-copy">
+      Mais do que registrar, transformar momentos<br class="desktop-break" />
+      em memórias que fazem você sentir tudo de novo.
+    </p>
+    <div class="hero-actions">
+      <a class="button gold" routerLink="/portfolio"
+        >Ver trabalhos <i class="bi bi-arrow-right" aria-hidden="true"></i></a
+      ><a class="button outline-light" routerLink="/orcamento">Pedir orçamento</a>
+    </div>
+  </div>
+  <div class="hero-signature">AMOR<br />PESSOAS<br />HISTÓRIAS<br /><span>EM MOVIMENTO</span></div>
+  <span class="hero-caption">Foto de referência · acervo em seleção</span>
+</section>
+<section class="about container">
+  <div class="portrait-wrap">
+    <img
+      [src]="config.portrait"
+      alt="Eduarda Reis, em retrato da apresentação do PDF"
+      loading="lazy"
+    /><span class="portrait-caption">Um olhar para o que fica.</span>
+  </div>
+  <div class="about-copy">
+    <p class="eyebrow">SOBRE MIM</p>
+    <h2>Prazer,<br />Madu Reis.</h2>
+    <p>{{ config.intro }}</p>
+    <p>{{ config.introMore }}</p>
+    <a class="text-link" routerLink="/portfolio"
+      ><span class="small-line"></span> Conheça meu olhar
+      <i class="bi bi-arrow-down" aria-hidden="true"></i
+    ></a>
+  </div>
+</section>
+<section class="works">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">ALGUNS TRABALHOS</p>
+        <h2>Filmes que contam o que importa.</h2>
+      </div>
+      <a class="button outline" routerLink="/portfolio"
+        >Ver portfólio completo <i class="bi bi-arrow-right" aria-hidden="true"></i
+      ></a>
+    </div>
+    <div class="project-grid">
+      @for (project of projects; track project.id) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+    <p class="caption">
+      Uma prévia do formato do portfólio. Projetos e títulos de exemplo, aguardando o acervo
+      aprovado.
+    </p>
+  </div>
+</section>
+<section class="packages-invite">
+  <div class="container">
+    <p class="eyebrow">CADA HISTÓRIA TEM SEU JEITO</p>
+    <h2>Escolha como guardar<br />o seu momento.</h2>
+    <p>Do primeiro ensaio ao grande dia, um registro com sentido para você.</p>
+    <a class="button gold" routerLink="/pacotes"
+      >Conheça os pacotes <i class="bi bi-arrow-right" aria-hidden="true"></i
+    ></a>
+  </div>
+</section>
