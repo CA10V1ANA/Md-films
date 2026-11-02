@@ -1,5 +1,38 @@
 # Revisão visual — Madu Films
 
+## Revisão incremental — seção Sobre mim (2 de novembro de 2026)
+
+**Resultado:** a seção ampliada preserva a identidade visual da página, apresenta a foto em pé na proporção original e acomoda o novo texto completo sem sobreposição ou rolagem horizontal.
+
+### Fontes e evidências
+
+- Verdade visual: `C:/Users/viana/AppData/Local/Temp/codex-clipboard-f8ad5cab-0650-4fd9-989e-d1a431179cf6.png` (1532 × 615 px), aberta e comparada diretamente com a implementação.
+- Implementação: `http://127.0.0.1:52869/`, capturada integralmente no navegador interno durante esta revisão.
+- Desktop: viewport solicitado de 1532 × 900; superfície CSS efetiva informada pelo navegador de 1896 × 1125; captura de 2370 × 3609 px. A seção mediu 1180 × 900 CSS px, com retrato de 440 × 660 e coluna de texto de 635 × 579.
+- Celular: breakpoint ativo abaixo de 600 px; superfície CSS efetiva de 488 px; captura de 586 × 4855 px. O retrato mediu 420 × 630 CSS px e manteve a proporção 2:3.
+- Estado: página inicial carregada, menu fechado e seção Sobre mim no estado padrão.
+- Densidade: a comparação considerou as dimensões CSS e não a quantidade bruta de pixels das capturas, pois o navegador interno aplicou escala própria.
+
+### Comparação visual
+
+- Tipografia: Cormorant Garamond e DM Sans foram preservadas. O novo título mantém a hierarquia editorial e os parágrafos conservam tamanho e entrelinha legíveis.
+- Espaçamento: a seção passou a 900 px de altura no desktop, com respiro superior e inferior. Foto, texto e chamada permanecem alinhados sem áreas comprimidas.
+- Cores: os tokens creme, marrom, dourado e texto secundário não foram alterados.
+- Imagem: o arquivo original de 853 × 1280 px é exibido em proporção 2:3, sem recorte do corpo, deformação ou perda observável de nitidez.
+- Conteúdo: título e três parágrafos conferem com o texto fornecido. A chamada “Conheça meu olhar” continua apontando para `/portfolio`.
+- Responsividade: no celular, a imagem fica centralizada acima do texto; não houve rolagem horizontal. No desktop, a composição permanece em duas colunas.
+- Comparação focada: foto, título, parágrafos e chamada foram avaliados em detalhe porque são os elementos alterados; as demais seções não exigiram recortes adicionais.
+
+### Verificações
+
+- TypeScript, formatação e build de produção aprovados.
+- Página carregada sem erros no console. Há um aviso de desempenho preexistente sobre `logo-emblema.png`, fora do escopo desta alteração.
+- Nenhum achado P0, P1 ou P2 permaneceu após a comparação visual em desktop e celular.
+
+final result: passed
+
+---
+
 > Registro histórico da revisão inicial realizada durante o desenvolvimento. As capturas e os anexos citados abaixo eram evidências locais e não estão incluídos nesta versão do repositório. Este registro não comprova um deploy público; consulte o README para os comandos atuais e confira o endereço da Vercel após a publicação.
 
 final result: passed

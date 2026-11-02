@@ -6,8 +6,10 @@ export const siteConfig = {
   whatsappNeedsConfirmation: false,
   portrait: '/images/madu.png', // Extraída da apresentação pessoal do PDF; confirmar uso.
   intro:
-    'Sou Eduarda Reis, a Madu. Graduanda em Marketing e Psicologia, trabalho com captação de eventos desde os 16 anos. Encontrei nas imagens uma forma de guardar histórias, emoções e os detalhes que tornam cada momento único.',
+    'Sou acadêmica de Marketing e Psicologia e atuo na captação de eventos desde os 16 anos. Encontrei na fotografia e no audiovisual uma forma de transformar momentos em histórias e emoções em memórias que permanecem.',
   introMore:
-    'Entre fotos, filmes e registros em tempo real, meu olhar procura a espontaneidade de quem vive a história. Para que você possa sentir tudo de novo.',
-  introNeedsConfirmation: true,
+    'Acredito que cada registro carrega algo único: um olhar, um sorriso espontâneo, um detalhe ou uma emoção que merece ser lembrada. Por isso, meu trabalho vai além de fotografar: também filmo, exploro perspectivas e valorizo a espontaneidade de cada instante.',
+  introPurpose:
+    'Meu propósito é contar histórias com sensibilidade, criatividade e autenticidade, criando registros que transmitam não apenas o que aconteceu, mas principalmente o que foi sentido.',
+  introNeedsConfirmation: false,
 };
