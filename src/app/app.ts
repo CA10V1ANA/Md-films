@@ -16,7 +16,9 @@ export class App {
     document.querySelector<HTMLButtonElement>('.menu-toggle')?.focus();
   }
   readonly config = siteConfig;
-  readonly contactUrl = whatsappUrl('Olá, Madu! Gostaria de conversar sobre seus serviços.');
+  readonly contactUrl = whatsappUrl(
+    'Olá, Madu! Vim pelo seu portfólio e gostaria de saber mais sobre seus serviços.',
+  );
   readonly menuOpen = signal(false);
   readonly homeHeader = signal(false);
   readonly links = [

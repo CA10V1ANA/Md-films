@@ -107,11 +107,23 @@ footer {
 }
 .footer-links {
   display: flex;
-  gap: 25px;
-  font-size: 0.8rem;
+  gap: 12px;
+  font-size: 1.25rem;
+}
+.footer-links a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+}
+.footer-links a:hover {
+  color: var(--sand);
+}
+.footer-links a:focus-visible {
+  outline-color: var(--cream);
 }
 .footer-links i {
-  margin-right: 6px;
+  line-height: 1;
 }
 .footer-bottom {
   padding-block: 18px;
