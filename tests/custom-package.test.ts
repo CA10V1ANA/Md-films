@@ -37,7 +37,7 @@ test('montagem aceita meia hora, quantidades e entrega tudo na mensagem sem herd
   assert.match(message, /Reels editados: 2/);
   assert.match(message, /Fotógrafos: 2/);
   assert.match(message, /Wedding Messages/);
-  assert.match(message, /45 segundo/);
+  assert.match(message, /Duração de cada reels: 1 minuto/);
   assert.match(message, /Horizontal e vertical/);
   assert.match(message, /leve & espontâneo/);
   assert.match(message, /sob consulta/);
@@ -82,9 +82,11 @@ test('duração opcional é validada apenas para entregas selecionadas', () => {
   assert.ok(customPackageError(custom));
   custom.videoMinutes = 2.5;
   assert.equal(customPackageError(custom), undefined);
+  custom.videoMinutes = 3.5;
+  assert.ok(customPackageError(custom));
+  custom.videoMinutes = null;
   custom.items['reels'].enabled = true;
   custom.reelsSeconds = 0.5;
-  assert.ok(customPackageError(custom));
-  custom.reelsSeconds = 30;
   assert.equal(customPackageError(custom), undefined);
+  assert.match(customPackageLines(custom).join('\n'), /Duração de cada reels: 1 minuto/);
 });

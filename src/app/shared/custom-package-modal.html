@@ -128,31 +128,23 @@
           <div class="duration-grid">
             @if (selection.items['videos'].enabled) {
               <label for="video-minutes"
-                >Minutos por vídeo completo <span class="hint">(opcional)</span
+                >Minutos por vídeo completo <span class="hint">(até 3 minutos, opcional)</span
                 ><input
                   id="video-minutes"
                   name="videoMinutes"
                   type="number"
                   min="0.5"
+                  max="3"
                   step="0.5"
                   inputmode="decimal"
                   [(ngModel)]="selection.videoMinutes"
-                  placeholder="A combinar"
+                  placeholder="Até 3 minutos"
               /></label>
             }
             @if (selection.items['reels'].enabled) {
-              <label for="reels-seconds"
-                >Segundos por reels <span class="hint">(opcional)</span
-                ><input
-                  id="reels-seconds"
-                  name="reelsSeconds"
-                  type="number"
-                  min="1"
-                  step="1"
-                  inputmode="numeric"
-                  [(ngModel)]="selection.reelsSeconds"
-                  placeholder="A combinar"
-              /></label>
+              <p class="duration-fixed">
+                <strong>Duração dos reels</strong><span>1 minuto por reels</span>
+              </p>
             }
           </div>
         </fieldset>

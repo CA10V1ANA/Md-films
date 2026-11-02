@@ -26,15 +26,10 @@ export function customPackageError(value: CustomPackage): string | undefined {
     value.videoMinutes !== null &&
     (!Number.isFinite(value.videoMinutes) ||
       value.videoMinutes <= 0 ||
+      value.videoMinutes > 3 ||
       value.videoMinutes % 0.5 !== 0)
   )
-    return 'Informe a duração do vídeo de meio em meio minuto, ou deixe em branco.';
-  if (
-    value.items['reels']?.enabled &&
-    value.reelsSeconds !== null &&
-    (!Number.isInteger(value.reelsSeconds) || value.reelsSeconds <= 0)
-  )
-    return 'Informe segundos inteiros maiores que zero para os reels, ou deixe em branco.';
+    return 'Informe a duração do vídeo entre 0,5 e 3 minutos, de meio em meio minuto, ou deixe em branco.';
   return undefined;
 }
 export function customPackageLines(value: CustomPackage): string[] {
@@ -56,10 +51,7 @@ export function customPackageLines(value: CustomPackage): string[] {
     lines.push(
       `Duração desejada de cada vídeo completo: ${value.videoMinutes.toLocaleString('pt-BR')} ${value.videoMinutes === 1 ? 'minuto' : 'minutos'}`,
     );
-  if (value.items['reels']?.enabled && value.reelsSeconds !== null)
-    lines.push(
-      `Duração desejada de cada reels: ${value.reelsSeconds.toLocaleString('pt-BR')} ${value.reelsSeconds === 1 ? 'segundo' : 'segundos'}`,
-    );
+  if (value.items['reels']?.enabled) lines.push('Duração de cada reels: 1 minuto');
   if (value.items['videos']?.enabled)
     lines.push(
       `Formato dos vídeos completos: ${customFormats.find((format) => format.id === value.videoFormat)?.label || 'A definir'}`,

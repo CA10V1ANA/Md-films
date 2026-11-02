@@ -107,7 +107,7 @@ export function createCustomPackage(): CustomPackage {
       customItems.map((item) => [item.id, { enabled: false, quantity: item.initialQuantity }]),
     ),
     videoMinutes: null,
-    reelsSeconds: null,
+    reelsSeconds: 60,
     videoFormat: 'a-definir',
     reelsFormat: 'a-definir',
     notes: '',

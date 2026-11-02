@@ -23,7 +23,10 @@ export const packages: FilmPackage[] = [
     price: 390,
     duration: 'Até 3 horas',
     image: '/images/casal-abraco.jpg',
-    includes: ['50 fotos tratadas em alta resolução', '1 reels editado em alta resolução'],
+    includes: [
+      '50 fotos tratadas em alta resolução',
+      '1 reels editado de até 1 minuto em alta resolução',
+    ],
   },
   {
     id: 'ensaio-completo',
@@ -34,7 +37,7 @@ export const packages: FilmPackage[] = [
     image: '/images/casal-jardim.jpg',
     includes: [
       '70 fotos tratadas em alta resolução',
-      '2 reels editados em alta resolução (horizontal e vertical)',
+      '2 reels editados de até 1 minuto em alta resolução (horizontal e vertical)',
     ],
   },
   {
@@ -44,7 +47,11 @@ export const packages: FilmPackage[] = [
     price: 540,
     duration: 'Até 1h30',
     image: '/images/casal-abraco.jpg',
-    includes: ['No cartório ou local do casamento civil', '90 fotos tratadas', '1 reels editado'],
+    includes: [
+      'No cartório ou local do casamento civil',
+      '90 fotos tratadas',
+      '1 reels editado de até 1 minuto',
+    ],
   },
   {
     id: 'cerimonia-making',
@@ -63,8 +70,8 @@ export const packages: FilmPackage[] = [
     duration: '5 horas de cobertura',
     image: '/images/casal-jardim.jpg',
     includes: [
-      '1 reels cinematográfico',
-      '1 vídeo completo',
+      '1 reels cinematográfico de até 1 minuto',
+      '1 vídeo completo de até 3 minutos',
       '1 filmmaker e 1 fotógrafo',
       'Mínimo de 100 fotos',
     ],
@@ -77,8 +84,8 @@ export const packages: FilmPackage[] = [
     duration: '8 horas de cobertura',
     image: '/images/casal-abraco.jpg',
     includes: [
-      '2 reels cinematográficos',
-      '1 vídeo completo',
+      '2 reels cinematográficos de até 1 minuto cada',
+      '1 vídeo completo de até 3 minutos',
       '1 fotógrafo, 1 filmmaker e 1 storymaker',
       'Mínimo de 100 fotos',
     ],
@@ -93,8 +100,8 @@ export const packages: FilmPackage[] = [
     includes: [
       'Pré-wedding + making of + cerimônia + recepção',
       '2 fotógrafos, 1 storymaker e 1 filmmaker',
-      '2 reels estilo cinematográfico',
-      '1 vídeo completo + Wedding Messages',
+      '2 reels estilo cinematográfico de até 1 minuto cada',
+      '1 vídeo completo de até 3 minutos + Wedding Messages',
       'Mínimo de 200 fotos',
     ],
     note: 'O PDF não especifica a duração em horas.',
